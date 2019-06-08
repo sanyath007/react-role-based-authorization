@@ -4,6 +4,7 @@ export function handleReponse(res) {
   return res.text()
     .then(text => {
       const data = text && JSON.parse(text);
+      
       if (!res.ok) {
         if ([401, 403].indexOf(res.status) !== -1) {
           /** Auto logout if 401 Unauthorized or 403 Forbidden response return from API */
