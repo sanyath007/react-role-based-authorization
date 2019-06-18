@@ -21,6 +21,12 @@ function login(username, password) {
 
   return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
     .then(handleResponse)
+    /** This for test fetch response */
+    // .then(res => {
+      // return console.log(res);
+      // return res.json();
+      // return res.text().then(text => text && JSON.parse(text));
+    // })
     .then(user => {
       /** Store user details and JWT token in localStorage to keep user logged in between page refreshes */
       localStorage.setItem('currentUser', JSON.stringify(user));
